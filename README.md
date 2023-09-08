@@ -1,7 +1,5 @@
 # AvalancheFrontendProject
 
-# SolidityErrorHandling
-
 ## Description
 
 This code demonstrates a frontend using Avalanche and Node.js
