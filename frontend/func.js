@@ -1,22 +1,21 @@
 const { ethers } = require('ethers');
 
 async function loadCounter() {
-    const provider = new ethers.providers.JsonRpcProvider(); 
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-
-    const [counter] = await ethers.getSigners(); 
+    const [counter] = await ethers.getSigners();
     const count = await counter.getCount();
     document.getElementById('counterValue').textContent = count.toString();
 }
 
 async function incrementCounter() {
-    const [signer] = await ethers.getSigners(); 
+    const [signer] = await ethers.getSigners();
     await signer.increment();
     loadCounter();
 }
 
 async function decrementCounter() {
-    const [signer] = await ethers.getSigners(); 
+    const [signer] = await ethers.getSigners();
     try {
         await signer.decrement();
         loadCounter();
